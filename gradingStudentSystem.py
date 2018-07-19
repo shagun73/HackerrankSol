@@ -2,18 +2,18 @@
 
 import os
 import sys
-
+finalgrade=[]
 def gradingStudents(grades):
-    finalgrades = []
-    for studentmark in grades[0:]:
-        if studentmark > 37 and studentmark % 5 > 2:
-            finalgrades.append(studentmark+(studentmark%5)-1)
+    for grade in grades[0:]:
+        if grade >= 38:
+            if grade % 5 > 2:
+                grade += 5 - (grade % 5)
+                finalgrade.append(grade)
+            else: 
+                finalgrade.append(grade)
         else:
-            finalgrades.append(studentmark)
-    #print(finalgrades)
-    return finalgrades
-            
-        
+            finalgrade.append(grade)
+    return finalgrade
 
 if __name__ == '__main__':
     f = open(os.environ['OUTPUT_PATH'], 'w')
